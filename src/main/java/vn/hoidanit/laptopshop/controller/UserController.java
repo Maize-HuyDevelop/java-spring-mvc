@@ -29,35 +29,23 @@ public class UserController {
         return "hello";
     }
 
-    // Create User
+    // Show User
     @RequestMapping("/admin/user")
     public String getUserPage(Model model) {
+        return "admin/user/table-user";
+    }
+
+    // Create User
+    @RequestMapping("/admin/user/create") // Get
+    public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
-        model.addAttribute("hoidanit", "from userController");
         return "admin/user/create";
     }
 
     @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
-    public String createtUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
+    public String createUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
         System.out.println(" Run here " + hoidanit);
         this.userService.handSaveUser(hoidanit);
         return "hello";
     }
-
-    // test create Product
-    // @RequestMapping("/admin/product")
-    // public String getProductPage(Model model) {
-    // model.addAttribute("newProduct", new Product());
-    // model.addAttribute("hoidanit", "from productController");
-    // return "admin/product/createProduct";
-    // }
-
-    // @RequestMapping(value = "/admin/product/createProduct", method =
-    // RequestMethod.POST)
-    // public String createProductPage(Model model, @ModelAttribute("newProduct")
-    // Product hoidanit) {
-    // System.out.println("Run here" + hoidanit);
-    // return "product";
-    // }
-
 }

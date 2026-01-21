@@ -16,6 +16,7 @@
 
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 <!-- <link rel="stylesheet" href="/css/demo.css"> -->
+
             </head>
 
             <body>
@@ -45,7 +46,8 @@
                                     <label for="exampleInputPassword1" class="form-label">Address:</label>
                                     <form:input type="text" class="form-control" path="address" />
                                 </div>
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <a href="/admin/user">
+                                    <button type="button" class="btn btn-primary">Create</button></a>
                             </form:form>
                         </div>
                     </div>
