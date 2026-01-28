@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-// import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
 
@@ -20,6 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    // Trang chủ
     @RequestMapping("/")
     public String getHomePage(Model model) {
         List<User> arrUsers = this.userService.getAllUsersByEmail("huy@gmail.com");
@@ -32,6 +32,8 @@ public class UserController {
     // Show User
     @RequestMapping("/admin/user")
     public String getUserPage(Model model) {
+        List<User> users = this.userService.getAllUsers();// lấy Danh Sách người dùng
+        model.addAttribute("users1", users);
         return "admin/user/table-user";
     }
 
@@ -44,8 +46,7 @@ public class UserController {
 
     @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String createUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
-        System.out.println(" Run here " + hoidanit);
-        this.userService.handSaveUser(hoidanit);
-        return "hello";
+        this.userService.handleSaveUser(hoidanit);
+        return "redirect:/admin/user";
     }
 }
