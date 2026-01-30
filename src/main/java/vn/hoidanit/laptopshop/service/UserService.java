@@ -29,4 +29,7 @@ public class UserService {
         return this.userRepository.findOneByEmail(email);
     }
 
+    public User getUserById(long id) {// hàm để lấy thông tin user thông qua email
+        return this.userRepository.findById(id);
+    }
 }
