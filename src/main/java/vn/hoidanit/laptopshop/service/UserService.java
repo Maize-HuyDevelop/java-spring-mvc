@@ -32,4 +32,14 @@ public class UserService {
     public User getUserById(long id) {// hàm để lấy thông tin user thông qua email
         return this.userRepository.findById(id);
     }
+
+    public User handleUpdateUser(User user) {// hàm sửa thông tin người dùng
+        User eric = this.userRepository.save(user);
+        System.out.print(eric);
+        return eric;
+    }
+
+    public void deleteAUser(long id) {// hàm để xóa thông tin user thông qua id
+        this.userRepository.deleteById(id);
+    }
 }
