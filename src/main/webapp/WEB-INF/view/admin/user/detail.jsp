@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
     <%@ page pageEncoding="UTF-8" %>
-        <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
             <!DOCTYPE html>
             <html lang="en">
@@ -11,7 +11,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="Hỏi Dân IT - Dự án laptopshop" />
                 <meta name="author" content="Hỏi Dân IT" />
-                <title>Update User</title>
+                <title>Show All User</title>
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
@@ -23,7 +23,7 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
-                                <h1 class="mt-4">Manager Orders</h1>
+                                <h1 class="mt-4">Manager Users</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Dashboard</li>
@@ -32,23 +32,20 @@
                                     <div class="row">
                                         <div class="col-12 mx-auto">
                                             <div class="d-flex justify-content-between">
-                                                <h3>Delete User With Id = ${id}</h3>
+                                                <h3>User Details with id = ${id}</h3>
                                             </div>
-                                            <hr />
-
-                                            <div class="alert alert-danger" role="alert">
-                                                Are you sure ?
-                                            </div>
-
-                                            <form:form method="post" action="/admin/user/delete"
-                                                modelAttribute="newUser">
-                                                <div class="mb-3" style="display: none;">
-                                                    <label class="form-label" disabled>Id:</label>
-                                                    <form:input value="${id}" type="text" class="form-control"
-                                                        path="id" />
+                                            <div class="card" style="width: 60%;">
+                                                <div class="card-header">
+                                                    User Iformation
                                                 </div>
-                                                <button class="btn btn-danger">Confirm</button>
-                                            </form:form>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">ID: ${user.id}</li>
+                                                    <li class="list-group-item">EMAIL: ${user.email}</li>
+                                                    <li class="list-group-item">FULL NAME: ${user.fullName}</li>
+                                                    <li class="list-group-item">ADDRESS: ${user.address}</li>
+                                                </ul>
+                                            </div>
+                                            <a href="/admin/user" class="btn btn-danger mt-3">Back</a>
 
                                         </div>
                                     </div>
