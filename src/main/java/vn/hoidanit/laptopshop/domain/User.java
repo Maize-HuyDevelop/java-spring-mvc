@@ -30,6 +30,23 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id") // User many -> one role -> role
     private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
     @OneToMany(mappedBy = "user")
     List<Order> orders;
 
